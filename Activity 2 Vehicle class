@@ -1,0 +1,35 @@
+class Vehicle {
+    String brand;
+    int fuel;
+
+    Vehicle(String brand, int fuel) {
+        this.brand = brand;
+        this.fuel = fuel;
+    }
+}
+
+class Car extends Vehicle {
+    int doors;
+
+    Car(String brand, int fuel, int doors) {
+        super(brand, fuel); 
+        this.doors = doors;
+    }
+
+    void drive() {
+        if (fuel > 0) {
+            fuel--;
+            System.out.println("Driving...");
+        } else {
+            System.out.println("Out of fuel!");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Toyota", 5, 4);
+        myCar.drive();           
+        System.out.println(myCar.fuel); 
+    }
+}
