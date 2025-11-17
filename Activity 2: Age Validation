@@ -1,0 +1,23 @@
+class Person {
+    private int age;
+
+    public int getAge() { return age; }
+
+    public void setAge(int age) {
+        if(age > 0) {
+            this.age = age;
+            System.out.println("Age set to " + age);
+        } else {
+            System.out.println("Invalid age: " + age);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.setAge(25);
+        p.setAge(-5);
+        System.out.println("Person's age: " + p.getAge());
+    }
+}
