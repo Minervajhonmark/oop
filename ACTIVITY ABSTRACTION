@@ -1,0 +1,115 @@
+ACTIVITY ABSTRACTION
+
+
+abstract class Car {
+  
+    String brand;
+    String type;       
+    String fuelType;  
+
+    
+    Car(String brand, String type, String fuelType) {
+        this.brand = brand;
+        this.type = type;
+        this.fuelType = fuelType;
+    }
+
+  
+    abstract void startEngine();
+    abstract void stopEngine();
+
+    
+    void showBrand() {
+        System.out.println("Car Brand: " + brand);
+    }
+
+    void showType() {
+        System.out.println("Car Type: " + type);
+    }
+
+    void showFuelType() {
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+
+class HondaCivic extends Car {
+ 
+    String model;
+
+    
+    HondaCivic(String brand, String model, String type, String fuelType) {
+        super(brand, type, fuelType);
+        this.model = model;
+    }
+
+   
+    @Override
+    void startEngine() {
+        System.out.println(model + " engine started with key ignition.");
+    }
+
+    @Override
+    void stopEngine() {
+        System.out.println(model + " engine stopped.");
+    }
+
+    
+    void showModel() {
+        System.out.println("Model: " + model);
+    }
+}
+
+
+class FordMustang extends Car {
+    String model;
+
+    FordMustang(String brand, String model, String type, String fuelType) {
+        super(brand, type, fuelType);
+        this.model = model;
+    }
+
+    @Override
+    void startEngine() {
+        System.out.println(model + " engine roars to life!");
+    }
+
+    @Override
+    void stopEngine() {
+        System.out.println(model + " engine turned off.");
+    }
+
+    void showModel() {
+        System.out.println("Model: " + model);
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+
+       
+        Car car1 = new HondaCivic("Honda", "Civic 2025", "Sedan", "unleaded");
+        Car car2 = new FordMustang("Ford", "Mustang GT", "Sports Car", "unleaded");
+
+        
+        Car[] cars = {car1, car2};
+
+        for (Car car : cars) {
+            car.showBrand();
+            car.showType();
+            car.showFuelType();
+            car.startEngine();
+            car.stopEngine();
+            
+            
+            if (car instanceof HondaCivic) {
+                ((HondaCivic) car).showModel();
+            } else if (car instanceof FordMustang) {
+                ((FordMustang) car).showModel();
+            }
+
+            System.out.println();
+        }
+    }
+}
