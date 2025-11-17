@@ -1,0 +1,35 @@
+class BankAccount {
+    private double balance;
+
+    BankAccount(double balance) {
+        this.balance = balance;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount + ", New balance: " + balance);
+    }
+
+    void withdraw(double amount) {
+        if(amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount + ", New balance: " + balance);
+        } else {
+            System.out.println("Insufficient funds for withdrawal of " + amount);
+        }
+    }
+
+    double getBalance() {
+        return balance;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount(100);
+        acc.deposit(50);
+        acc.withdraw(30);
+        acc.withdraw(150); // trying to withdraw more than balance
+        System.out.println("Final balance: " + acc.getBalance());
+    }
+}
