@@ -1,0 +1,19 @@
+interface Speaker { void speak(); }
+
+class Bird implements Speaker {
+    public void speak() { System.out.println("Bird: Chirp"); }
+}
+
+class Robot implements Speaker {
+    public void speak() { System.out.println("Robot: Beep"); }
+}
+
+public class Main {
+    static void makeItSpeak(Speaker s) { s.speak(); }
+
+    public static void main(String[] args) {
+        makeItSpeak(new Bird());
+        makeItSpeak(new Robot());
+        // makeItSpeak((Speaker)123); // Compile-time error in Java
+    }
+}
