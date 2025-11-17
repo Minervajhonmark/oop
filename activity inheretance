@@ -1,0 +1,49 @@
+ACTIVITY inheretance
+
+class Vehicle {
+    
+    String brand;
+
+  
+    Vehicle(String brand) {
+        this.brand = brand;
+    }
+
+    void start() {
+        System.out.println("Vehicle is starting...");
+    }
+}
+
+class Car extends Vehicle {
+    
+    String model;
+    String type;       
+    String fuelType;   
+
+
+    Car(String brand, String model, String type, String fuelType) {
+        super(brand);   
+        this.model = model;
+        this.type = type;
+        this.fuelType = fuelType;
+    }
+
+    void displayInfo() {
+        System.out.println("Brand: " + brand);       
+        System.out.println("Model: " + model);       
+        System.out.println("Type: " + type);         
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Car car1 = new Car("Toyota", "Vios", "Sedan", "unleaded");
+
+        car1.start();      
+        car1.displayInfo(); 
+    }
+}
+
+
