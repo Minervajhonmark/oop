@@ -1,0 +1,18 @@
+class InkPrinter {
+    void printDocument() { System.out.println("InkPrinter: Printing with ink"); }
+}
+
+class LaserPrinter {
+    void printDocument() { System.out.println("LaserPrinter: Printing with laser"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        InkPrinter ip = new InkPrinter();
+        LaserPrinter lp = new LaserPrinter();
+
+        System.out.println("Printer outputs:");
+        ip.printDocument();
+        lp.printDocument();
+    }
+}
